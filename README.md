@@ -17,8 +17,7 @@
 | <b>Variable low number </b>  | <b>이해중</b> |
 |         <b>CRC16</b>         |  <b>-</b>  |
 |         <b>CRC16</b>         |  <b>-</b>  |
-|                              |            |
-<br><br>
+<br>
 
 ---
 ### 참고문서를 확인해보면 Command code 0x03 은 측정기에서 값을 받아 올 수 있고,  
