@@ -70,5 +70,8 @@
 ### master 와 server 는 꼭 같은 키를 이용해야한다.
 ### 계산 방법은 [이곳](https://m.blog.naver.com/PostView.nhn?blogId=h111922&logNo=220640536147&proxyReferer=https%3A%2F%2Fwww.google.com%2F) 을 참조
 
+## **결과**
+![](simulation/2019-08-1982106.gif)
+
 
     
