@@ -69,9 +69,9 @@
 ### CRC-16-IBM(modbus) 에서는 X<sup>16</sup>  + x<sup>15</sup> + x<sup>2</sup> + 1 즉 0x8005 를 키(제수)로 이용한다.   
 ### master 와 server 는 꼭 같은 키를 이용해야한다.
 ### 계산 방법은 [이곳](https://m.blog.naver.com/PostView.nhn?blogId=h111922&logNo=220640536147&proxyReferer=https%3A%2F%2Fwww.google.com%2F) 을 참조
-
-## **결과**
-![](simulation/2019-08-1982106.gif)
+<br><br>
+## **최종 결과 (serial + crc)**
+![](./simulation/result.gif)
 
 
     
