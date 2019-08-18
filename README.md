@@ -7,20 +7,20 @@
     위와 같은 데이터 포맷을 가진다.
 
 ## Request
-|              요청 필드 명              | 예제 값(16진수) |
-| :-------------------------------: | :--------: |
-|         <b>Slave addr</b>         | <b>01</b>  |
-|        <b>Command code</b>        | <b>03</b>  |
-|    <b>start addr high byte</b>    | <b>00</b>  |
-|    <b>start addr low byte</b>     | <b>06</b>  |
-| <b>Variable high number byte </b> | <b>08</b>  |
-| <b>Variable low number byte </b>  | <b>00</b>  |
-|    <b>start addr high byte</b>    | <b>00</b>  |
-|    <b>start addr low byte</b>     | <b>07</b>  |
-| <b>Variable high number byte </b> | <b>08</b>  |
-| <b>Variable low number byte </b>  | <b>00</b>  |
-|           <b>CRC16</b>            |  <b>-</b>  |
-|           <b>CRC16</b>            |  <b>-</b>  |
+|             요청 필드 명              | 예제 값(16진수) |
+| :------------------------------: | :--------: |
+|        <b>Slave addr</b>         | <b>01</b>  |
+|       <b>Command code</b>        | <b>03</b>  |
+|   <b>start addr high byte</b>    | <b>00</b>  |
+|    <b>start addr low byte</b>    | <b>06</b>  |
+|   <b>Variable number byte </b>   | <b>00</b>  |
+| <b>Variable low number byte </b> | <b>08</b>  |
+|   <b>start addr high byte</b>    | <b>00</b>  |
+|    <b>start addr low byte</b>    | <b>07</b>  |
+|   <b>Variable number byte </b>   | <b>00</b>  |
+| <b>Variable low number byte </b> | <b>08</b>  |
+|           <b>CRC16</b>           |  <b>-</b>  |
+|           <b>CRC16</b>           |  <b>-</b>  |
 <br>
 
 ---
