@@ -7,37 +7,40 @@
     위와 같은 데이터 포맷을 가진다.
 
 ## Request
-|           요청 필드 명            | 예제 값(16진수) |
-| :--------------------------: | :--------: |
-|      <b>Slave addr</b>       | <b>01</b>  |
-|     <b>Command code</b>      | <b>03</b>  |
-| <b>start addr high byte</b>  | <b>06</b>  |
-|  <b>start addr low byte</b>  | <b>09</b>  |
-| <b>Variable high number </b> | <b>이해중</b> |
-| <b>Variable low number </b>  | <b>이해중</b> |
-|         <b>CRC16</b>         |  <b>-</b>  |
-|         <b>CRC16</b>         |  <b>-</b>  |
+|              요청 필드 명              | 예제 값(16진수) |
+| :-------------------------------: | :--------: |
+|         <b>Slave addr</b>         | <b>01</b>  |
+|        <b>Command code</b>        | <b>03</b>  |
+|    <b>start addr high byte</b>    | <b>00</b>  |
+|    <b>start addr low byte</b>     | <b>06</b>  |
+| <b>Variable high number byte </b> | <b>08</b>  |
+| <b>Variable low number byte </b>  | <b>00</b>  |
+|    <b>start addr high byte</b>    | <b>00</b>  |
+|    <b>start addr low byte</b>     | <b>07</b>  |
+| <b>Variable high number byte </b> | <b>08</b>  |
+| <b>Variable low number byte </b>  | <b>00</b>  |
+|           <b>CRC16</b>            |  <b>-</b>  |
+|           <b>CRC16</b>            |  <b>-</b>  |
 <br>
 
 ---
-### 참고문서를 확인해보면 Command code 0x03 은 측정기에서 값을 받아 올 수 있고,  
+### 참고문서를 확인해보면 Command code 0x03 은 측정기에서 값을 받아 올 수 있는 코드이고,  
 ### 주소 0x06\~0x07, 0x08\~0x09은 각각 X, Y의 외경 값을 가진다.
-### 요약하면 위와 같은 요청을하면 X, Y의 값을 응답을 기대 할 수 있다.
+### start addr high, low byte 는 16진수 주소를 둘(반?)으로 나눈 값이고,
+### Variable high, low number byte 는 총 몇 바이트를 읽을건지 명시한다.
+### 위 패킷은 2개의 data 를 가지고 있고 0x06\~0x07 주소의 값을 요청한다.
+### 요약하면 위와 같은 요청은 X 의 외경값 응답을 기대 할 수 있다.
 ---
 ## Respone
-    응답 받을 데이터의 범위를 10~30 이라고 가정
+    응답 받을 데이터의 범위를 20~30 이라고 가정
 |          응답 필드 명           | 예제 값(16진수) |
 | :------------------------: | :--------: |
 |     <b>Slave addr</b>      | <b>01</b>  |
 |    <b>Command code</b>     | <b>03</b>  |
-| <b>addr 0x06 high byte</b> |  <b>F</b>  |
-| <b>addr 0x06 low byte</b>  |  <b>A</b>  |
-| <b>addr 0x07 high byte</b> | <b>14</b>  |
-| <b>addr 0x07 low byte</b>  |  <b>A</b>  |
-| <b>addr 0x08 high byte</b> | <b>19</b>  |
-| <b>addr 0x08 low byte</b>  | <b>14</b>  |
-| <b>addr 0x09 high byte</b> | <b>1E</b>  |
-| <b>addr 0x09 low byte</b>  | <b>19</b>  |
+| <b>addr 0x06 high byte</b> | <b>18</b>  |
+| <b>addr 0x06 low byte</b>  | <b>14</b>  |
+| <b>addr 0x07 high byte</b> | <b>1E</b>  |
+| <b>addr 0x07 low byte</b>  | <b>19</b>  |
 |        <b>CRC16</b>        |  <b>-</b>  |
 |        <b>CRC16</b>        |  <b>-</b>  |
 ### 
@@ -54,15 +57,15 @@
 
 ## CRC16
 ---
-### 위에서 k 가 16 비트이면 CRC-16, 32비트이면 CRC-32 가 되고 키 값으로는 보통 주어진 테이블을 이용한다.
+### 위에서 k 가 16 비트이면 CRC-16, 32비트이면 CRC-32 가 된다. 키(제수)) 값으로는 아래를 참고하자.
 ---
 
 ## CRC16 의 종류
- > [CRC16 참고자료](https://en.wikipedia.org/wiki/Cyclic_redundancy_check#Polynomial_representations_of_cyclic_redundancy_checks) 를 보면 다양한 crc16 의 종류가 있다  
+ > [CRC16 참고자료](https://en.wikipedia.org/wiki/Cyclic_redundancy_check#Polynomial_representations_of_cyclic_redundancy_checks) 를 보면 다양한 crc 종류가 있다  
  
 ## **CRC16-IBM** 을 알아보자
 ### Modbus, USB, ANSI 등.. 에 이용된다.
-> 아마 IBM 의 룰을 따르지 않을까 생각)
+> 아마 IBM 의 룰을 따르지 않을까 생각
 
 ### CRC-16-IBM(modbus) 에서는 X<sup>16</sup>  + x<sup>15</sup> + x<sup>2</sup> + 1 즉 0x8005 를 키(제수)로 이용한다.   
 ### master 와 server 는 꼭 같은 키를 이용해야한다.
