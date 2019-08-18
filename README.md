@@ -15,10 +15,6 @@
 |    <b>start addr low byte</b>    | <b>06</b>  |
 |   <b>Variable number byte </b>   | <b>00</b>  |
 | <b>Variable low number byte </b> | <b>08</b>  |
-|   <b>start addr high byte</b>    | <b>00</b>  |
-|    <b>start addr low byte</b>    | <b>07</b>  |
-|   <b>Variable number byte </b>   | <b>00</b>  |
-| <b>Variable low number byte </b> | <b>08</b>  |
 |           <b>CRC16</b>           |  <b>-</b>  |
 |           <b>CRC16</b>           |  <b>-</b>  |
 <br>
@@ -28,11 +24,11 @@
 ### 주소 0x06\~0x07, 0x08\~0x09은 각각 X, Y의 외경 값을 가진다.
 ### start addr high, low byte 는 16진수 주소를 둘(반?)으로 나눈 값이고,
 ### Variable high, low number byte 는 총 몇 바이트를 읽을건지 명시한다.
-### 위 패킷은 2개의 data 를 가지고 있고 0x06\~0x07 주소의 값을 요청한다.
-### 요약하면 위와 같은 요청은 X 의 외경값 응답을 기대 할 수 있다.
+### 즉 위 패킷은 0x06 \~ 0x09 까지 총 8byte 를 읽는다.
+### 요약하면 위와 같은 요청은 X, Y 의 외경값 응답을 기대 할 수 있다.
 ---
 ## Respone
-    응답 받을 데이터의 범위를 20~30 이라고 가정
+    응답 받을 데이터의 범위를 20~40 이라고 가정
 |          응답 필드 명           | 예제 값(16진수) |
 | :------------------------: | :--------: |
 |     <b>Slave addr</b>      | <b>01</b>  |
@@ -41,9 +37,12 @@
 | <b>addr 0x06 low byte</b>  | <b>14</b>  |
 | <b>addr 0x07 high byte</b> | <b>1E</b>  |
 | <b>addr 0x07 low byte</b>  | <b>19</b>  |
+| <b>addr 0x08 high byte</b> | <b>23</b>  |
+| <b>addr 0x08 low byte</b>  | <b>1F</b>  |
+| <b>addr 0x09 high byte</b> | <b>28</b>  |
+| <b>addr 0x09 low byte</b>  | <b>24</b>  |
 |        <b>CRC16</b>        |  <b>-</b>  |
 |        <b>CRC16</b>        |  <b>-</b>  |
-### 
 
 
 ## CRC
