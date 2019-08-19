@@ -20,7 +20,7 @@
 <br>
 
 ---
-### <a href="https://github.com/devGW/modbus_rtu_rs485/document.doc">참고 문서</a> 를 확인해보면 Command code 0x03 은 측정기에서 값을 받아 올 수 있는 코드이고,  
+### <a href="https://drive.google.com/drive/folders/1sd7yxczFnP95oezSRXYtMkZyUGJCGVsv?usp=sharing">참고 문서</a> 를 확인해보면 Command code 0x03 은 측정기에서 값을 받아 올 수 있는 코드이고,  
 ### 주소 0x06\~0x07, 0x08\~0x09은 각각 X, Y의 외경 값을 가진다.
 ### start addr high, low byte 는 16진수 주소를 둘(반?)으로 나눈 값이고,
 ### Variable high, low number byte 는 총 몇 바이트를 읽을건지 명시한다.
